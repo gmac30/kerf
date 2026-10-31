@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy policy · Kerf</title>
+<meta name="description" content="What Kerf for iPhone keeps, what leaves your phone, and when. No account, no analytics, no ads.">
+<meta name="theme-color" content="#0a0e14">
+<link rel="canonical" href="https://gmac30.github.io/kerf/privacy.html">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kerf">
+<meta property="og:title" content="Privacy policy · Kerf">
+<meta property="og:description" content="What Kerf for iPhone keeps, what leaves your phone, and when. No account, no analytics, no ads.">
+<meta property="og:url" content="https://gmac30.github.io/kerf/privacy.html">
+<meta property="og:image" content="https://gmac30.github.io/kerf/icon-512.png">
+<meta name="twitter:card" content="summary">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a0e14; --bg2: #101623; --card: #131b2a; --card2: #161f30;
+  --edge: #263248; --edge2: #33415c; --text: #eef2f9; --dim: #9aa7bd; --faint: #6f7d96;
+  --accent: #3ee6c9; --accent-ink: #04201b; --amber: #ffd166;
+  --r: 16px; --maxw: 1120px;
+  --sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.skip { position: absolute; left: 12px; top: -60px; background: var(--accent); color: var(--accent-ink); padding: 8px 14px; border-radius: 10px; font-weight: 700; z-index: 20; text-decoration: none; }
+.skip:focus { top: 12px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left)); }
+.g { flex: none; display: block; }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(10, 14, 20, .78); -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px); border-bottom: 1px solid rgba(87, 106, 145, .22); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font: 700 19px/1 var(--display); letter-spacing: -.01em; }
+.brand svg { border-radius: 8px; }
+.nav { display: flex; gap: 4px; }
+.nav a { color: var(--dim); text-decoration: none; font-size: 15px; font-weight: 600; padding: 8px 12px; border-radius: 10px; }
+.nav a:hover { color: var(--text); background: rgba(255, 255, 255, .05); }
+.nav a[aria-current="page"] { color: var(--accent); background: rgba(62, 230, 201, .1); }
+
+/* hero: the lighted ceiling grid, fading out */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid rgba(87, 106, 145, .16); }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(62, 230, 201, .085) 1px, transparent 1px), linear-gradient(90deg, rgba(62, 230, 201, .085) 1px, transparent 1px); background-size: 44px 44px; background-position: center top; -webkit-mask-image: radial-gradient(ellipse 75% 85% at 50% 0%, #000 25%, transparent 75%); mask-image: radial-gradient(ellipse 75% 85% at 50% 0%, #000 25%, transparent 75%); pointer-events: none; }
+.hero::after { content: ""; position: absolute; left: 50%; top: -220px; width: 760px; height: 440px; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(62, 230, 201, .16), transparent); pointer-events: none; }
+.hero .wrap { position: relative; z-index: 1; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 14px; }
+h1, h2, h3 { font-family: var(--display); letter-spacing: -.02em; }
+.page-hero { padding: 56px 0 44px; }
+.page-hero h1 { font-size: clamp(36px, 6vw, 52px); line-height: 1.05; margin: 0 0 14px; }
+.page-hero .lead { color: var(--dim); font-size: 19px; margin: 0; max-width: 620px; }
+.meta { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--dim); font-size: 14px; padding: 6px 12px; border: 1px solid var(--edge); border-radius: 999px; background: rgba(16, 22, 35, .7); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(62, 230, 201, .15); }
+
+/* front page */
+.home-hero { padding: 72px 0 64px; text-align: center; }
+.home-hero .appicon { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .06), 0 18px 50px -12px rgba(62, 230, 201, .45), 0 10px 30px rgba(0, 0, 0, .5); }
+.home-hero h1 { font-size: clamp(48px, 9vw, 76px); line-height: 1; margin: 26px 0 16px; letter-spacing: -.035em; }
+.home-hero .lead { color: var(--text); font-size: clamp(19px, 2.6vw, 23px); line-height: 1.45; max-width: 640px; margin: 0 auto; }
+.home-hero .lead span { color: var(--dim); }
+.status { display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(62, 230, 201, .35); background: rgba(62, 230, 201, .07); color: var(--text); font-weight: 600; font-size: 15px; }
+.section { padding: 72px 0; }
+.section h2 { font-size: clamp(28px, 4vw, 36px); line-height: 1.15; margin: 0 0 10px; }
+.section .sub { color: var(--dim); margin: 0 0 32px; max-width: 620px; }
+.steps { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; margin: 0; padding: 0; }
+@media (min-width: 600px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1060px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.step { position: relative; background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--edge); border-radius: var(--r); padding: 24px 22px 22px; }
+.step .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: var(--accent); background: rgba(62, 230, 201, .1); border: 1px solid rgba(62, 230, 201, .22); margin-bottom: 18px; }
+.step .n { position: absolute; top: 22px; right: 22px; color: var(--dim); font: 600 13px/1 ui-monospace, "SF Mono", Menlo, monospace; }
+.step h3 { font-size: 19px; margin: 0 0 6px; }
+.step p { color: var(--dim); font-size: 15.5px; line-height: 1.55; margin: 0; }
+.trades { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; list-style: none; }
+.trades li { font-size: 14px; font-weight: 600; color: var(--text); padding: 7px 13px; border-radius: 999px; background: var(--bg2); border: 1px solid var(--edge); }
+.band { display: grid; gap: 28px; grid-template-columns: 1fr; align-items: center; background: radial-gradient(120% 140% at 0% 0%, rgba(62, 230, 201, .12), transparent 55%), var(--card); border: 1px solid var(--edge); border-radius: 22px; padding: 36px 28px; }
+.band h2 { margin: 0 0 10px; }
+.band p { color: var(--dim); margin: 0; }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.facts li { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.facts .g { color: var(--accent); }
+@media (min-width: 860px) { .band { grid-template-columns: 1.2fr 1fr; padding: 48px; } }
+.cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; font-weight: 700; text-decoration: none; }
+.cta:hover { text-decoration: underline; }
+
+/* privacy at a glance */
+.glance { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.glance li { display: flex; align-items: flex-start; gap: 10px; padding: 14px 14px; border-radius: 14px; background: rgba(19, 27, 42, .85); border: 1px solid var(--edge); font-size: 15px; font-weight: 600; line-height: 1.35; }
+.glance .g { color: var(--accent); margin-top: 1px; }
+@media (min-width: 860px) { .glance { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* long-form pages */
+.doc { display: grid; gap: 40px; padding-top: 48px; padding-bottom: 24px; }
+@media (min-width: 1000px) { .doc { grid-template-columns: 250px minmax(0, 720px); justify-content: space-between; } }
+.toc { font-size: 15px; }
+.toc details { border: 1px solid var(--edge); border-radius: 14px; background: var(--card); }
+.toc summary { cursor: pointer; list-style: none; padding: 14px 16px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+.toc summary::-webkit-details-marker { display: none; }
+.toc summary::after { content: ""; width: 9px; height: 9px; border-right: 2px solid var(--dim); border-bottom: 2px solid var(--dim); transform: rotate(45deg) translateY(-3px); transition: transform .15s; }
+.toc details[open] summary::after { transform: rotate(225deg) translateY(-1px); }
+.toc ol { list-style: none; margin: 0; padding: 0 8px 10px; }
+.toc a { display: block; color: var(--dim); text-decoration: none; padding: 7px 10px; border-radius: 9px; line-height: 1.35; }
+.toc a:hover { color: var(--text); background: rgba(255, 255, 255, .04); }
+.toc a[aria-current="true"] { color: var(--accent); }
+.toc .label { display: none; color: var(--faint); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 10px 10px; }
+@media (min-width: 1000px) {
+  .toc nav { position: sticky; top: 88px; }
+  .toc details { border: 0; background: none; }
+  .toc summary { display: none; }
+  .toc .label { display: block; }
+  .toc ol { padding: 0; border-left: 1px solid var(--edge); }
+  .toc a { border-radius: 0 9px 9px 0; margin-left: -1px; border-left: 2px solid transparent; }
+  .toc a:hover { border-left-color: var(--edge2); }
+  .toc a[aria-current="true"] { border-left-color: var(--accent); background: rgba(62, 230, 201, .06); }
+}
+.prose section { padding: 28px 0; border-top: 1px solid rgba(87, 106, 145, .2); }
+.prose section:first-child { border-top: 0; padding-top: 0; }
+.prose h2 { font-size: 24px; line-height: 1.25; margin: 0 0 12px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.prose p { margin: 0 0 14px; color: #d9e0ec; }
+.prose p:last-child { margin-bottom: 0; }
+.tag { font: 700 12px/1 var(--sans); letter-spacing: .02em; color: var(--amber); background: rgba(255, 209, 102, .1); border: 1px solid rgba(255, 209, 102, .3); padding: 6px 9px; border-radius: 999px; }
+.prose section.callout { border: 1px solid rgba(62, 230, 201, .35); background: radial-gradient(120% 120% at 0% 0%, rgba(62, 230, 201, .1), transparent 60%), var(--card); border-radius: var(--r); padding: 24px 24px; margin-bottom: 8px; }
+.prose section.callout h2 { color: var(--accent); font-size: 20px; }
+.prose section.callout p { color: var(--text); font-size: 18px; line-height: 1.6; }
+.prose section.callout + section { border-top: 0; }
+.totop { display: inline-flex; align-items: center; gap: 6px; margin-top: 28px; color: var(--dim); text-decoration: none; font-size: 15px; font-weight: 600; }
+.totop:hover { color: var(--text); }
+
+/* support */
+.contact { display: grid; gap: 22px; align-items: center; margin-top: 8px; padding: 28px; border-radius: 20px; border: 1px solid rgba(62, 230, 201, .35); background: radial-gradient(110% 140% at 0% 0%, rgba(62, 230, 201, .13), transparent 55%), var(--card); }
+@media (min-width: 860px) { .contact { grid-template-columns: 1fr auto; padding: 36px 40px; } }
+.contact h2 { font-size: 26px; margin: 0 0 6px; }
+.contact p { color: var(--dim); margin: 0; }
+.contact .addr { display: block; color: var(--text); font: 600 17px/1.4 var(--sans); margin-top: 12px; word-break: break-all; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 48px; padding: 0 20px; border-radius: 12px; font: 700 16px/1 var(--sans); text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 8px 24px -10px rgba(62, 230, 201, .7); }
+.btn.primary:hover { background: #5cf0d6; text-decoration: none; }
+.btn.ghost { background: transparent; color: var(--text); border-color: var(--edge2); }
+.btn.ghost:hover { background: rgba(255, 255, 255, .05); }
+.topics { display: grid; gap: 16px; grid-template-columns: 1fr; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 760px) { .topics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.topic { background: linear-gradient(180deg, var(--card2), var(--card)); border: 1px solid var(--edge); border-radius: var(--r); padding: 24px; }
+.topic header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.topic .ic { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; color: var(--accent); background: rgba(62, 230, 201, .1); border: 1px solid rgba(62, 230, 201, .22); }
+.topic h3 { font-size: 19px; margin: 0; }
+.topic p { color: var(--dim); font-size: 15.5px; line-height: 1.6; margin: 0 0 10px; }
+.topic p:last-child { margin: 0; }
+.topic strong { color: var(--text); font-weight: 600; }
+
+/* footer */
+.foot { margin-top: 64px; border-top: 1px solid rgba(87, 106, 145, .22); padding: 32px 0 44px; color: var(--faint); font-size: 14px; }
+.foot .wrap { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; }
+.foot .brand { font-size: 16px; }
+.foot nav { display: flex; gap: 20px; flex-wrap: wrap; }
+.foot a { color: var(--dim); text-decoration: none; }
+.foot a:hover { color: var(--text); }
+.foot .brand { color: var(--text); }
+
+@media (max-width: 520px) {
+  body { font-size: 16.5px; }
+  .nav a { padding: 8px 10px; }
+  .page-hero { padding: 40px 0 34px; }
+  .home-hero { padding: 52px 0 48px; }
+  .section { padding: 52px 0; }
+  .contact { padding: 22px; }
+  .step { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; padding: 18px; }
+  .step .ic { margin: 0; grid-row: span 2; }
+  .step h3 { margin: 1px 40px 4px 0; }
+  .step .n { top: 20px; right: 18px; }
+  .btns .btn { flex: 1 1 auto; }
+}
+@media print {
+  :root { --bg: #fff; --bg2: #fff; --text: #000; --dim: #333; --faint: #555; --card: #fff; --card2: #fff; --edge: #ccc; --accent: #0a6b5d; }
+  .glance li, .meta, .trades li, .step, .topic, .band, .contact, .prose section.callout { background: none !important; box-shadow: none !important; }
+  .btn.primary { background: none !important; color: var(--accent) !important; border-color: var(--accent) !important; box-shadow: none !important; }
+  .top, .toc, .skip, .hero::before, .hero::after, .totop, .foot nav { display: none !important; }
+  body { font-size: 11.5pt; }
+  .prose p, .prose section.callout p { color: #000; }
+  .doc { display: block; padding: 0; }
+  .prose section { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="kg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2238"/><stop offset="1" stop-color="#090c13"/></linearGradient><symbol id="kerf-icon" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="228" fill="url(#kg)"/><rect x="2" y="2" width="1020" height="1020" rx="226" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="4"/><path d="M336 280V744M706 280L450 512L718 744" fill="none" stroke="#40e8cc" stroke-width="88" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="./" aria-label="Kerf home"><svg class="" width="30" height="30" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#kerf-icon"/></svg>Kerf</a>
+<nav class="nav" aria-label="Site"><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
+</div></header>
+<main id="main">
+<section class="hero page-hero"><div class="wrap">
+<p class="eyebrow">Kerf for iPhone</p>
+<h1>Privacy policy</h1>
+<p class="lead">What Kerf keeps, what leaves your phone, and when. In plain words.</p>
+<p class="meta"><span class="dot" aria-hidden="true"></span>Updated October 30, 2026</p>
+<ul class="glance" aria-label="At a glance"><li><svg class="g" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No account, no sign-in</li><li><svg class="g" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your work is kept on your phone</li><li><svg class="g" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>No ads, no analytics of ours</li><li><svg class="g" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Your data is never sold</li></ul>
+</div></section>
+<div class="wrap doc">
+<aside class="toc"><nav aria-label="On this page"><details open><summary>On this page</summary><p class="label">On this page</p><ol>
+<li><a href="#the-short-version">The short version</a></li>
+<li><a href="#what-the-app-stores-and-where">What the app stores, and where</a></li>
+<li><a href="#what-leaves-your-phone-when-you-send-it">What leaves your phone when you send it</a></li>
+<li><a href="#camera-photos-and-reading-text">Camera, photos and reading text</a></li>
+<li><a href="#location">Location</a></li>
+<li><a href="#contacts">Contacts</a></li>
+<li><a href="#card-and-bank-payments">Card and bank payments</a></li>
+<li><a href="#links-to-view-and-sign">Links to view and sign</a></li>
+<li><a href="#purchases">Purchases</a></li>
+<li><a href="#who-else-handles-it">Who else handles it</a></li>
+<li><a href="#children">Children</a></li>
+<li><a href="#changes">Changes</a></li>
+<li><a href="#contact">Contact</a></li>
+</ol></details></nav></aside>
+<article class="prose">
+<section id="the-short-version" class="callout">
+<h2>The short version</h2>
+<p>Kerf keeps your work on your phone. There is no account and no sign-in, and no server of ours sees your jobs, prints, photos or prices. If you turn on card and bank payments, our payments server keeps the few facts each pay link needs. A few other things can leave the phone, each listed below: what you choose to share, a street-name lookup at Apple, and usage reports from Google's text reader. We run no ads and no analytics of our own, and we never sell your data.</p>
+</section>
+<section id="what-the-app-stores-and-where">
+<h2>What the app stores, and where</h2>
+<p>Everything you make in Kerf — jobs, takeoffs, estimates, invoices, pay apps, clients, items, expenses, receipts, prints, photos, your letterhead and logo, and your settings — is stored in the app's own storage on your device.</p>
+<p>Your device's normal iCloud or iTunes backup may include that storage, under Apple's terms. The backup you make yourself from Settings is a file you choose where to keep (for example iCloud Drive); Kerf does not upload it anywhere. If card and bank payments are on, that file also carries this phone's payments code, so keep it somewhere private.</p>
+<p>You can take back the camera, microphone, photos, location or notifications permission at any time in the iPhone's Settings › Kerf (Settings › Apps › Kerf on iOS 18 and later). Deleting Kerf from the phone deletes what it keeps in its storage there. A copy can remain in your iCloud or iTunes backup and in any backup file you saved yourself, and photos you saved to your Photos stay there until you delete them. If card and bank payments are on, tap Stop payments on this phone first (below).</p>
+</section>
+<section id="what-leaves-your-phone-when-you-send-it">
+<h2>What leaves your phone when you send it</h2>
+<p>A PDF, CSV, photo or clip, picture, 3D room scan, backup file, or the text of a note or list leaves your phone only when you share it — by Messages, Mail, AirDrop, Files or any app you pick in the share sheet. Kerf hands it to that app and keeps no copy of the message. (An estimate sent with its link to view and sign is the one exception: see Links to view and sign.)</p>
+<p>A pay link you paste (Stripe, Square, PayPal or similar) is printed on your invoices as a link and a QR code. When a client opens it, they deal with that provider under its terms, not ours.</p>
+</section>
+<section id="camera-photos-and-reading-text">
+<h2>Camera, photos and reading text</h2>
+<p>With your permission, the camera, the microphone (for the sound on clips) and the photo library are used to bring in drawing sheets, photos and clips of the work, punch items, room scans, tile and plank pictures, paint previews, receipts, an old paper invoice, and a logo. The pictures, clips and scans are kept in the app's storage on your device.</p>
+<p>Photos and clips you take with Kerf's camera in Photos, Punch and Guides, and receipt and invoice photos, are also saved, full size, to your Photos in a Kerf album. This is on until you turn off Save a copy to iPhone Photos in Photos › options. Photos you upload, and shots of drawing sheets, are never copied there.</p>
+<p>Reading the text on a receipt, an old invoice or a drawing sheet happens on the phone itself, with Apple's or Google's text reader. The picture is never sent anywhere to be read. Google's reader (ML Kit) does send Google facts about the phone and the app — the phone model and system, Kerf's version, an id for this install, how its readings performed and any error codes — which Google uses for diagnostics and usage analytics.</p>
+</section>
+<section id="location">
+<h2>Location</h2>
+<p>With your permission, while Kerf's camera is open, Kerf asks the phone where it is, so a job photo can carry the time and place it was taken. When you bring in a photo or clip from your library, Kerf also keeps the place its camera saved in it. The place is stored with the photo on your device and prints on it and its reports. To show a street name, the phone sends the spot to Apple's own map service, as the Maps app does. Nothing is sent to us. Turning off Stamp the time and place in Photos › options stops Kerf's camera asking where you are and hides the stamp; places saved in photos you bring in stay with them.</p>
+</section>
+<section id="contacts">
+<h2>Contacts</h2>
+<p>When you tap From Contacts, the iPhone shows your address book in its own picker. Kerf never asks for access to your contacts and never sees the address book: only the one contact you tap comes back, its name, company, phone, email and address are filled into the client, and nothing is uploaded.</p>
+<p>In Who's where, a person you add from Contacts brings only their name and one phone number (a mobile number first; you choose when there are several). Your crew list, places and moves are kept on this phone and go into your backups, never to Kerf. Texts to your crew go from your own phone through Messages, after you tap Send.</p>
+</section>
+<section id="card-and-bank-payments">
+<h2>Card and bank payments <span class="tag">Only if you turn payments on</span></h2>
+<p>Only if you turn them on in Money › Business › How you get paid. Stripe, Inc. runs the payments and your Stripe account; what you and your clients give Stripe (identity, bank and card details) is covered by Stripe's own privacy policy. Kerf never sees a card or bank number.</p>
+<p>To make each invoice's or deposit's pay link and tell you when it is paid, Kerf's payments server (hosted by Supabase in the United States) keeps: your Stripe account's id, your business name as Stripe has it, and where the account stands; a code that ties your phone to it; each pay link's invoice or estimate number, its id in Kerf, whether it is for an invoice or an estimate's deposit, its amount and its web address; each payment's amount, any refund, its method and status, and the name or email the client paid under; and your phone's notification address. It is used for nothing else.</p>
+<p>When you set payments up, Kerf sends Stripe the business name and email from your letterhead to start your Stripe account. Each pay link also carries the invoice's title, the client's name, and your business name and phone; Kerf passes these to Stripe to show on the pay page and does not keep them, but they stay in your Stripe account.</p>
+<p>If you allow notifications, your phone gets its notification address from Expo's push service. Alerts go from our server through Expo's push service to Apple, which delivers them to your phone: a payment made; a bank payment started, cleared or failed; a refund; a dispute opened or lost; and your Stripe account turning on or being paused. A payment alert carries the amount and the invoice or estimate number, and a paid, started or cleared alert also carries the name the client paid under.</p>
+<p>All of it is kept for as long as payments are on for your phone. Tap Stop payments on this phone (Money › Business › How you get paid) and the server deletes all of it: your account's record, every pay link and payment record, and your phone's notification address. With no signal, payments stop on the phone at once and the deleting finishes the next time Kerf can reach the server. If you deleted Kerf before stopping, or before the deleting finished, email <a href="mailto:srtcat@proton.me">srtcat@proton.me</a> and we delete it. A client who paid one of your invoices can ask the same way to have their name or email removed. Pay links you already sent still work and the money still goes to your Stripe account, but Kerf no longer records those payments. Your Stripe account and its money stay yours, and Kerf stays connected to it until you remove Kerf in your Stripe dashboard.</p>
+</section>
+<section id="links-to-view-and-sign">
+<h2>Links to view and sign</h2>
+<p>Only when an estimate goes out with Include the link to view and sign turned on (the Send sheet). Kerf's server (hosted by Supabase in the United States) then keeps that estimate as your client sees it — your letterhead, the client's name and address, the lines, prices, scope and terms — behind a long random link, so your client can open it in a web browser without an app or a login.</p>
+<p>When your client uses the link, the server keeps what they do there: when they first open it, their signature (the drawing), the name, title and company they type, the option they pick, the time they sign and their browser's name, any message asking for changes, and a decline with its reason. Kerf's phone reads these back onto the estimate. If you allow notifications, the alerts go through Expo's push service to Apple, as for payments.</p>
+<p>Withdraw a link that is still open, or send a changed copy while it is open, and the server deletes the estimate behind it. A link the client signed or declined keeps its copy as the record for you and your client. To delete everything the server keeps for your phone, tap Delete my link data in Settings, or write to us (below).</p>
+</section>
+<section id="purchases">
+<h2>Purchases</h2>
+<p>Kerf Pro is a subscription sold through Apple's App Store. Apple handles the payment, the renewal and your payment details; Kerf never sees them. Kerf keeps on your device only what Apple says about your subscription (which plan, and until when). The free first month is Apple's free trial: Apple decides who gets it. You can cancel any time in your App Store subscriptions; access lasts to the end of the paid period.</p>
+</section>
+<section id="who-else-handles-it">
+<h2>Who else handles it</h2>
+<p>Kerf passes data only to the companies that run part of the app: Stripe (card and bank payments), Supabase (hosts Kerf's payments and sign-link server), Expo (carries payment alerts to Apple), Apple (street names, alert delivery, and its own backups) and Google (ML Kit's usage reports, above). Supabase and Expo handle it only on Kerf's behalf, to run that part. Stripe, Apple and Google handle what they get under their own privacy policies. Each is bound by its own terms to protect that data at least as well as this policy does. No parent or related company of Kerf sees your data.</p>
+</section>
+<section id="children">
+<h2>Children</h2>
+<p>Kerf is a tool for contractors and is not directed at children under 13. We do not knowingly collect information from children.</p>
+</section>
+<section id="changes">
+<h2>Changes</h2>
+<p>If this policy changes, the date at the top changes and the new text ships in the app and on this page.</p>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<p>Questions about privacy, or to ask us to delete what the payments server keeps: email <a href="mailto:srtcat@proton.me">srtcat@proton.me</a>.</p>
+</section>
+<a class="totop" href="#main"><svg class="g" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>Back to top</a>
+</article>
+</div>
+</main>
+<script>
+// Wide screens show the contents list open; phones fold it.
+(function () { var d = document.querySelector('.toc details'); if (!d) return;
+  var m = window.matchMedia('(min-width: 1000px)'); var set = function () { d.open = m.matches; };
+  set(); m.addEventListener ? m.addEventListener('change', set) : m.addListener(set);
+  // The contents list marks the section being read: the last one whose top
+  // has passed under the header, or the last one at the very bottom.
+  var links = {}; d.querySelectorAll('a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('.prose section[id]'));
+  var mark = function (id) { Object.keys(links).forEach(function (k) { if (k === id) links[k].setAttribute('aria-current', 'true'); else links[k].removeAttribute('aria-current'); }); };
+  var held = 0, ticking = false;
+  var read = function () { ticking = false; if (Date.now() < held || !secs.length) return;
+    var root = document.documentElement, id = secs[0].id;
+    if (window.innerHeight + window.scrollY >= root.scrollHeight - 2) id = secs[secs.length - 1].id;
+    else secs.forEach(function (s) { if (s.getBoundingClientRect().top <= 110) id = s.id; });
+    mark(id); };
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(read); } }, { passive: true });
+  d.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { mark(a.getAttribute('href').slice(1)); held = Date.now() + 900; if (!m.matches) d.open = false; }); });
+  read();
+})();
+</script>
+<footer class="foot"><div class="wrap">
+<a class="brand" href="./"><svg class="" width="24" height="24" viewBox="0 0 1024 1024" aria-hidden="true"><use href="#kerf-icon"/></svg>Kerf</a>
+<nav aria-label="Footer"><a href="privacy.html">Privacy policy</a><a href="support.html">Support</a><a href="mailto:srtcat@proton.me">srtcat@proton.me</a></nav>
+<span>© 2026 Kerf · Kerf for iPhone</span>
+</div></footer>
+</body>
+</html>

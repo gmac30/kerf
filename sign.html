@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Your estimate</title>
+<meta name="theme-color" content="#f3f5f9">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+/* THE CLIENT'S SIGN LINK (j952): the estimate the contractor sent, to read,
+   pick an option, sign, ask for changes or decline — on the client's own
+   phone, no app, no login. The paper comes from Kerf's server as data and is
+   only ever set as TEXT here (never as HTML). The token rides after the #,
+   so it never reaches a server log or a referrer. */
+:root { --ink: #1b2430; --muted: #5f6b7d; --rule: #e3e7ee; --bg: #f3f5f9; --paper: #fff; --brand: #1f5fd1; --ok: #14532d; --okbg: #e6f6ef; --warn: #7a4b00; --warnbg: #fff6e0; --bad: #8a1f17; --badbg: #fdeceb; --info: #173a7a; --infobg: #eef3fd; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+main { max-width: 680px; margin: 0 auto; padding: 12px 12px calc(32px + env(safe-area-inset-bottom)); }
+.paper { background: var(--paper); border-radius: 14px; padding: 18px 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.lh { display: flex; gap: 12px; align-items: center; border-bottom: 2px solid var(--brand); padding-bottom: 10px; margin-bottom: 12px; }
+.logo { width: 40px; height: 40px; border-radius: 9px; background: var(--brand); color: #fff; font-weight: 900; font-size: 18px; display: flex; align-items: center; justify-content: center; flex: none; }
+.biz { font-weight: 800; font-size: 16px; }
+.mut { color: var(--muted); font-size: 13px; }
+.row2 { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin: 4px 0 10px; }
+h1 { font-size: 20px; margin: 0; }
+h2 { font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); margin: 18px 0 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td { padding: 7px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.r { text-align: right; font-weight: 700; white-space: nowrap; padding-left: 10px; font-variant-numeric: tabular-nums; }
+td .d { color: var(--muted); font-size: 12.5px; }
+tr.strong td { font-weight: 800; font-size: 15px; border-bottom: 0; }
+tr.muted td { color: var(--muted); }
+.big { display: flex; justify-content: space-between; align-items: baseline; background: var(--infobg); border-radius: 10px; padding: 12px; margin-top: 12px; }
+.big b { font-size: 22px; font-variant-numeric: tabular-nums; }
+ul { margin: 4px 0; padding-left: 20px; }
+p { margin: 4px 0; white-space: pre-wrap; }
+.btn { display: block; width: 100%; border: 0; border-radius: 12px; padding: 15px; font: inherit; font-weight: 800; font-size: 16px; text-align: center; text-decoration: none; cursor: pointer; margin: 10px 0 0; }
+.pri { background: var(--brand); color: #fff; }
+.pri:disabled { background: #c9d0db; }
+.sec { background: #fff; color: var(--brand); border: 1.5px solid var(--brand); }
+.quiet { background: none; color: var(--muted); font-weight: 600; padding: 10px; }
+.danger { background: none; color: var(--bad); border: 1.5px solid #e4c3c0; margin-top: 28px; }
+.ban { border-radius: 12px; padding: 12px 14px; margin: 0 0 12px; font-size: 14.5px; }
+.ok { background: var(--okbg); color: var(--ok); } .warn { background: var(--warnbg); color: var(--warn); } .bad { background: var(--badbg); color: var(--bad); } .info { background: var(--infobg); color: var(--info); }
+.card { background: var(--paper); border-radius: 14px; padding: 16px; margin-top: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+.opt { display: flex; gap: 12px; align-items: center; border: 1.5px solid var(--rule); border-radius: 12px; padding: 12px; margin: 8px 0; cursor: pointer; }
+.opt.on { border-color: var(--brand); background: var(--infobg); }
+.opt .dot { width: 20px; height: 20px; border-radius: 10px; border: 2px solid #b8c0cc; flex: none; }
+.opt.on .dot { border: 6px solid var(--brand); }
+.opt .grow { flex: 1; } .opt b { white-space: nowrap; }
+label { display: block; font-weight: 700; font-size: 13px; color: var(--muted); margin: 12px 0 4px; }
+input[type=text], textarea { width: 100%; font: inherit; font-size: 16px; border: 1.5px solid #cfd5df; border-radius: 10px; padding: 11px; color: var(--ink); background: #fff; }
+textarea { min-height: 90px; resize: vertical; }
+.pad { position: relative; border: 1.5px dashed #b8c0cc; border-radius: 10px; background: #fff; height: 170px; touch-action: none; }
+.pad canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pad .hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #9aa4b2; pointer-events: none; }
+.pad .clr { position: absolute; right: 8px; top: 6px; background: none; border: 0; color: var(--muted); font: inherit; font-size: 13px; padding: 6px; cursor: pointer; }
+.chk { display: flex; gap: 10px; align-items: flex-start; margin: 14px 0 4px; font-size: 14.5px; cursor: pointer; }
+.chk input { width: 22px; height: 22px; margin: 1px 0 0; flex: none; accent-color: var(--brand); }
+.err { color: var(--bad); font-size: 14px; margin-top: 8px; min-height: 1px; }
+.sig { border-top: 1px solid var(--rule); margin-top: 14px; padding-top: 10px; }
+.sig svg { width: 220px; height: 74px; display: block; }
+.foot { text-align: center; color: #98a2b3; font-size: 12px; margin-top: 22px; }
+.spin { text-align: center; padding: 60px 0; color: var(--muted); }
+.hide { display: none !important; }
+@media print { .noprint { display: none !important; } body, main { background: #fff; } .paper { box-shadow: none; } }
+</style>
+</head>
+<body>
+<main>
+  <div id="top"></div>
+  <div id="paper" class="paper hide"></div>
+  <div id="act" class="noprint"></div>
+  <div class="foot noprint">Sent with Kerf · this page is private to you</div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var SERVER = 'https://mchwoqarumehmlqmmcbk.supabase.co/functions/v1/sign';
+  var token = (location.hash || '').replace(/^#/, '').trim();
+  var state = null, pick = null, opened = false;
+  var $ = function (id) { return document.getElementById(id); };
+  var pad2 = function (n) { return (n < 10 ? '0' : '') + n; };
+  var today = function () { var d = new Date(); return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()); };
+
+  // every word goes in as text: el('p', 'class', 'words', [children])
+  function el(tag, cls, text, kids) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null && text !== '') e.textContent = String(text);
+    (kids || []).forEach(function (k) { if (k) e.appendChild(k); });
+    return e;
+  }
+  function clear(n) { while (n.firstChild) n.removeChild(n.firstChild); return n; }
+  function when(ms) {
+    if (!ms) return '';
+    var d = new Date(ms);
+    return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) + ', ' + d.toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  }
+  function day(iso) {
+    if (!iso) return '';
+    var p = String(iso).split('-');
+    return new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  function post(body) {
+    return fetch(SERVER, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({ t: token, today: today() }, body)) })
+      .then(function (r) { return r.json().then(function (j) { j.__status = r.status; return j; }, function () { return { error: 'The server did not answer properly.', __status: r.status }; }); });
+  }
+  var biz = function () { return (state && (state.business || (state.model && state.model.from && state.model.from.name))) || 'your contractor'; };
+  var docWord = function () { return 'Estimate ' + ((state && (state.docNo || (state.model && state.model.no))) || ''); };
+  var call = function () { return state && state.phone ? ' at ' + state.phone : ''; };
+
+  // ── THE PAPER ──
+  function paper(m) {
+    var p = clear($('paper'));
+    p.classList.remove('hide');
+    if (m.brand && /^#[0-9a-fA-F]{3,8}$/.test(m.brand)) document.documentElement.style.setProperty('--brand', m.brand);
+    var from = m.from || {};
+    p.appendChild(el('div', 'lh', null, [
+      el('div', 'logo', (from.name || '?').trim().charAt(0).toUpperCase()),
+      el('div', null, null, [el('div', 'biz', from.name || ''), el('div', 'mut', (from.lines || []).join(' · '))]),
+    ]));
+    var bill = m.billTo || {};
+    var head = el('div', 'row2');
+    head.appendChild(el('div', null, null, [el('h1', null, (m.title || 'Estimate') + ' ' + (m.no || '')), el('div', 'mut', (m.meta || []).filter(function (x) { return x.label !== 'Estimate'; }).map(function (x) { return x.label + ' ' + x.value; }).join(' · '))]));
+    if (bill.name) head.appendChild(el('div', null, null, [el('div', 'mut', 'For'), el('div', null, bill.name), el('div', 'mut', (bill.lines || []).join(' · '))]));
+    p.appendChild(head);
+    var job = m.job || {};
+    var jobLine = [job.title || job.name, job.site].filter(Boolean).join(' · ');
+    if (jobLine) p.appendChild(el('div', null, jobLine));
+    if (m.stageNote) p.appendChild(el('div', 'ban info', m.stageNote));
+    if (m.scope) { p.appendChild(el('h2', null, 'Scope of work')); p.appendChild(el('p', null, m.scope)); }
+    if ((m.alsoIncluded || []).length) { p.appendChild(el('h2', null, 'Also included')); p.appendChild(el('ul', null, null, m.alsoIncluded.map(function (x) { return el('li', null, x); }))); }
+    if ((m.exclusions || []).length) { p.appendChild(el('h2', null, 'Not included')); p.appendChild(el('ul', null, null, m.exclusions.map(function (x) { return el('li', null, x); }))); }
+    (m.groups || []).forEach(function (g) {
+      if (g.title) p.appendChild(el('h2', null, g.title));
+      else if (!m.scope) p.appendChild(el('h2', null, 'The work'));
+      var t = el('table');
+      (g.rows || []).forEach(function (r) {
+        var qty = r.qty ? r.qty + (r.unit ? ' ' + r.unit : '') + (r.rate ? ' × ' + r.rate : '') : '';
+        t.appendChild(el('tr', null, null, [el('td', null, null, [el('div', null, r.desc), (r.detail || qty) ? el('div', 'd', [r.detail, qty].filter(Boolean).join(' · ')) : null]), el('td', 'r', r.amount)]));
+      });
+      if (g.subtotal && m.grouped) t.appendChild(el('tr', 'muted', null, [el('td', null, 'Subtotal'), el('td', 'r', g.subtotal)]));
+      p.appendChild(t);
+    });
+    if ((m.totals || []).length) {
+      var tt = el('table');
+      tt.style.marginTop = '8px';
+      m.totals.forEach(function (x) { tt.appendChild(el('tr', x.strong ? 'strong' : x.muted ? 'muted' : null, null, [el('td', null, x.label), el('td', 'r', x.value)])); });
+      p.appendChild(tt);
+    }
+    var lastTotal = (m.totals || []).length ? m.totals[m.totals.length - 1].value : '';
+    if (m.big && !(m.options && m.options.length) && m.big.value !== lastTotal) p.appendChild(el('div', 'big', null, [el('span', null, m.big.label), el('b', null, m.big.value)]));
+    // j956: what might be found, priced now and not in the total
+    if (m.ifFound && (m.ifFound.rows || []).length) {
+      p.appendChild(el('h2', null, m.ifFound.title + ' — ' + m.ifFound.note));
+      var ft = el('table');
+      m.ifFound.rows.forEach(function (r) { ft.appendChild(el('tr', null, null, [el('td', null, null, [el('div', null, r.desc), r.limit ? el('div', 'd', r.limit) : null]), el('td', 'r', r.price)])); });
+      p.appendChild(ft);
+      p.appendChild(el('div', 'mut', m.ifFound.foot));
+    }
+    if (m.depositAsk) p.appendChild(el('div', 'mut', m.depositAsk.label + ': ' + m.depositAsk.value));
+    if ((m.schedule || []).length) {
+      p.appendChild(el('h2', null, 'Payment schedule'));
+      var st = el('table');
+      m.schedule.forEach(function (x) { st.appendChild(el('tr', null, null, [el('td', null, x.label), el('td', 'r', x.value)])); });
+      p.appendChild(st);
+      if (m.scheduleNote) p.appendChild(el('div', 'mut', m.scheduleNote));
+    }
+    // j967: accepted only once the deposit is paid
+    if (m.acceptNote) { var an = el('div', 'mut', m.acceptNote); an.style.fontWeight = '700'; p.appendChild(an); }
+    if (m.ownerList && (m.ownerList.rows || []).length) {
+      p.appendChild(el('h2', null, (m.ownerList.title || 'Supplied by owner') + (m.ownerList.note ? ' — ' + m.ownerList.note : '')));
+      p.appendChild(el('ul', null, null, m.ownerList.rows.map(function (r) { return el('li', null, r.desc + (r.qty ? ' · ' + r.qty + (r.unit ? ' ' + r.unit : '') : '')); })));
+      if (m.ownerList.terms) p.appendChild(el('p', 'mut', m.ownerList.terms));
+    }
+    if (m.notes) { p.appendChild(el('h2', null, 'Notes')); p.appendChild(el('p', null, m.notes)); }
+    if (m.termsText) { p.appendChild(el('h2', null, 'Terms')); p.appendChild(el('p', 'mut', m.termsText)); }
+    if (m.payText) { p.appendChild(el('h2', null, 'How to pay')); p.appendChild(el('p', 'mut', m.payText)); }
+    if (m.footer) p.appendChild(el('p', 'mut', m.footer));
+    if (state.signed) {
+      var s = state.signed;
+      var box = el('div', 'sig');
+      box.appendChild(el('div', 'mut', 'Accepted by'));
+      if (s.path) {
+        var ns = 'http://www.w3.org/2000/svg';
+        var svg = document.createElementNS(ns, 'svg');
+        svg.setAttribute('viewBox', '0 0 ' + (s.w || 600) + ' ' + (s.h || 200));
+        var path = document.createElementNS(ns, 'path');
+        path.setAttribute('d', s.path); path.setAttribute('fill', 'none'); path.setAttribute('stroke', '#1b2430'); path.setAttribute('stroke-width', '2.5'); path.setAttribute('stroke-linecap', 'round'); path.setAttribute('stroke-linejoin', 'round');
+        svg.appendChild(path); box.appendChild(svg);
+      }
+      box.appendChild(el('div', null, [s.name, s.title, s.company].filter(Boolean).join(', ') + ' · ' + when(Date.parse(s.at))));
+      if (s.option && m.options) { var o = m.options.filter(function (x) { return x.id === s.option; })[0]; if (o) box.appendChild(el('div', 'mut', 'Picked ' + o.name + ' · ' + o.total)); }
+      p.appendChild(box);
+    }
+  }
+
+  // ── WHAT THE CLIENT CAN DO ──
+  function banner(cls, words, kids) { return el('div', 'ban ' + cls, words, kids); }
+  function button(cls, words, fn, attrs) { var b = el('button', 'btn ' + cls, words); b.type = 'button'; if (fn) b.onclick = fn; Object.keys(attrs || {}).forEach(function (k) { b.setAttribute(k, attrs[k]); }); return b; }
+
+  function depositBits(a) {
+    var d = state.deposit;
+    if (!d) return;
+    if (d.status === 'paid') a.appendChild(banner('ok', 'The deposit is paid. Thank you.'));
+    else if (d.status === 'processing') a.appendChild(banner('info', 'Bank payment started — it takes up to 4 business days to clear.'));
+    else if (d.status !== 'refunded') {
+      var link = el('a', 'btn pri', 'Pay the deposit');
+      link.href = d.url; link.rel = 'noopener';
+      a.appendChild(link);
+      a.appendChild(el('div', 'mut', 'Next: Stripe\'s secure page for card or bank. ' + biz() + ' gets paid directly.'));
+    }
+  }
+
+  function render() {
+    var top = clear($('top')), a = clear($('act'));
+    var s = state.state;
+    document.title = (state.docNo ? docWord() : 'Your estimate') + (state.business ? ' · ' + state.business : '');
+    if (s === 'gone') { $('paper').classList.add('hide'); top.appendChild(banner('bad', 'This link isn\'t working. Check that the whole link was copied, or ask your contractor to send it again.')); return; }
+    if (s === 'replaced') {
+      $('paper').classList.add('hide');
+      top.appendChild(banner('warn', biz() + ' sent a newer copy of ' + docWord() + '. This one can no longer be signed.'));
+      if (state.replacedBy) { var go = el('a', 'btn pri', 'Open the new copy'); go.href = '#' + state.replacedBy; a.appendChild(go); }
+      return;
+    }
+    if (s === 'withdrawn') { $('paper').classList.add('hide'); top.appendChild(banner('bad', 'This link was withdrawn by ' + biz() + '. It can\'t be signed. Questions? Contact them' + call() + '.')); return; }
+    if (!state.model) { top.appendChild(banner('bad', 'This estimate isn\'t available.')); return; }
+    paper(state.model);
+    if (s === 'expired') top.appendChild(banner('warn', 'This estimate was good until ' + day(state.validUntil) + '. Ask ' + biz() + ' for a new one' + call() + '.'));
+    if (s === 'declined') top.appendChild(banner('bad', 'You declined this estimate. ' + biz() + ' has been told.'));
+    if (s === 'signed') {
+      // j967: with 'accepted once the deposit is paid', signing is half of it — said plainly
+      var holds = !!state.model.acceptNote && !(state.deposit && (state.deposit.status === 'paid' || state.deposit.status === 'processing'));
+      top.appendChild(banner('ok', 'Signed ' + when(Date.parse(state.signed.at)) + ' by ' + state.signed.name + '. ' + biz() + ' has your signature.'));
+      if (holds) top.appendChild(banner('warn', 'Pay the deposit to accept this estimate.' + (state.deposit && state.deposit.url ? '' : state.model.payText ? ' How to pay: ' + state.model.payText : ' Ask ' + biz() + ' how to pay it' + (state.phone ? ' — ' + state.phone : '') + '.')));
+      depositBits(top);
+      if (state.deposit && state.deposit.status === 'due') top.lastChild.style.marginBottom = '14px';
+      a.appendChild(button('sec', 'Save or print a copy', function () { window.print(); }));
+      return;
+    }
+    if (s !== 'open') return;
+    // options: pick one before signing
+    var opts = state.model.options || [];
+    if (opts.length) {
+      var oc = el('div', 'card');
+      oc.appendChild(el('h2', null, 'Pick one'));
+      opts.forEach(function (o) {
+        var row = el('div', 'opt' + (pick === o.id ? ' on' : ''), null, [el('div', 'dot'), el('div', 'grow', o.name), el('b', null, o.total)]);
+        row.setAttribute('role', 'radio'); row.setAttribute('aria-checked', pick === o.id ? 'true' : 'false'); row.tabIndex = 0;
+        row.onclick = function () { pick = o.id; render(); };
+        oc.appendChild(row);
+      });
+      a.appendChild(oc);
+    }
+    var chosen = opts.filter(function (o) { return o.id === pick; })[0];
+    a.appendChild(button('pri', opts.length && !chosen ? 'Pick an option to sign' : 'Accept and sign' + (chosen ? ' · ' + chosen.label : ''), function () { signForm(); }, opts.length && !chosen ? { disabled: 'disabled' } : {}));
+    a.appendChild(button('sec', 'Ask for changes', function () { askForm(); }));
+    a.appendChild(button('sec', 'Save or print a copy', function () { window.print(); }));
+    a.appendChild(button('danger', 'Decline', function () { declineForm(); }));
+  }
+
+  // ── SIGN ──
+  function signForm() {
+    var a = clear($('act'));
+    var m = state.model, opts = m.options || [];
+    var chosen = opts.filter(function (o) { return o.id === pick; })[0];
+    var c = el('div', 'card');
+    c.appendChild(el('h1', null, 'Accept ' + docWord()));
+    c.appendChild(el('div', 'mut', chosen ? chosen.name + ' · ' + chosen.total : (m.big ? m.big.label + ' ' + m.big.value : '')));
+    c.appendChild(el('label', null, 'Your full name'));
+    var name = el('input'); name.type = 'text'; name.autocomplete = 'name'; name.value = (m.billTo && m.billTo.name) || ''; c.appendChild(name);
+    var title = el('input'), company = el('input');
+    title.type = company.type = 'text';
+    var more = button('quiet', 'Signing for a company? Add your title and company', function () { more.classList.add('hide'); bits.classList.remove('hide'); });
+    more.style.textAlign = 'left'; more.style.paddingLeft = '0'; more.style.fontSize = '14px'; more.style.color = 'var(--brand)';
+    var bits = el('div', 'hide', null, [el('label', null, 'Title'), title, el('label', null, 'Company'), company]);
+    c.appendChild(more); c.appendChild(bits);
+    c.appendChild(el('label', null, 'Signature'));
+    var padBox = el('div', 'pad'), cv = document.createElement('canvas'), hint = el('div', 'hint', 'Sign here with your finger'), clr = button('clr', 'Clear', null);
+    clr.className = 'clr';
+    padBox.appendChild(cv); padBox.appendChild(hint); padBox.appendChild(clr);
+    c.appendChild(padBox);
+    var strokes = [], cur = '', drawing = false, ctx = null, W = 0, H = 170;
+    function size() {
+      var r = padBox.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+      W = Math.round(r.width); H = Math.round(r.height);
+      cv.width = W * dpr; cv.height = H * dpr;
+      ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#1b2430';
+      strokes = []; cur = ''; hint.classList.remove('hide'); check();
+    }
+    function pt(e) { var r = cv.getBoundingClientRect(); return [Math.round((e.clientX - r.left) * 10) / 10, Math.round((e.clientY - r.top) * 10) / 10]; }
+    var last = null;
+    cv.addEventListener('pointerdown', function (e) { e.preventDefault(); drawing = true; cv.setPointerCapture(e.pointerId); last = pt(e); cur = 'M' + last[0] + ' ' + last[1]; hint.classList.add('hide'); });
+    cv.addEventListener('pointermove', function (e) {
+      if (!drawing) return;
+      var p = pt(e);
+      ctx.beginPath(); ctx.moveTo(last[0], last[1]); ctx.lineTo(p[0], p[1]); ctx.stroke();
+      cur += 'L' + p[0] + ' ' + p[1]; last = p;
+    });
+    var end = function () { if (!drawing) return; drawing = false; if (cur.indexOf('L') > 0) strokes.push(cur); cur = ''; check(); };
+    cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end); cv.addEventListener('pointerleave', end);
+    clr.onclick = function () { size(); };
+    var agree = el('input'); agree.type = 'checkbox';
+    var also = [];
+    if ((m.exclusions || []).length) also.push('what\'s not included');
+    if (m.ifFound && (m.ifFound.rows || []).length) also.push('the prices if something is found');
+    var words = 'I accept this estimate as shown' + (also.length ? ', including ' + also.join(' and ') : '') + ((m.schedule || []).length ? (also.length ? ', and' : ' and') + ' the payment schedule' : '') + '.';
+    var lab = el('label', 'chk', null, [agree, el('span', null, words)]);
+    lab.style.color = 'inherit'; lab.style.fontWeight = '400';
+    c.appendChild(lab);
+    c.appendChild(el('div', 'mut', 'Your signature, your name and the time you sign go to ' + biz() + ' through Kerf.'));
+    if (m.acceptNote) c.appendChild(el('div', 'mut', 'Signing, then paying the deposit, accepts it.'));
+    var err = el('div', 'err');
+    var go = button('pri', '', null);
+    c.appendChild(go); c.appendChild(err);
+    c.appendChild(button('quiet', 'Back', function () { render(); }));
+    a.appendChild(c);
+    function check() {
+      var ready = name.value.trim() && strokes.length && agree.checked;
+      go.disabled = !ready;
+      go.textContent = !name.value.trim() ? 'Type your full name' : !strokes.length ? 'Sign in the box to continue' : !agree.checked ? 'Tick the box to accept' : (state.deposit && state.deposit.status === 'due' ? 'Sign, then pay the deposit' : 'Sign');
+    }
+    name.oninput = check; agree.onchange = check;
+    go.onclick = function () {
+      go.disabled = true; go.textContent = 'Signing…'; err.textContent = '';
+      post({ op: 'sign', name: name.value, title: title.value, company: company.value, path: strokes.join(''), w: W, h: H, agree: agree.checked, option: pick })
+        .then(function (r) {
+          if (r.error) { err.textContent = r.error; check(); return; }
+          state = r; window.scrollTo(0, 0); render();
+        }, function () { err.textContent = 'No signal — your signature wasn\'t sent. Try again.'; check(); });
+    };
+    requestAnimationFrame(size);
+    window.addEventListener('resize', function () { if (document.body.contains(cv) && !strokes.length) size(); });
+    padBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // ── ASK / DECLINE ──
+  function textForm(head, ph, sendWords, op, field, done, sub) {
+    var a = clear($('act'));
+    var c = el('div', 'card');
+    c.appendChild(el('h1', null, head));
+    if (sub) c.appendChild(el('div', 'mut', sub));
+    var t = el('textarea'); t.placeholder = ph; c.appendChild(t);
+    var err = el('div', 'err');
+    var go = button(op === 'decline' ? 'danger' : 'pri', sendWords, function () {
+      go.disabled = true; err.textContent = '';
+      var body = { op: op }; body[field] = t.value;
+      post(body).then(function (r) {
+        if (r.error) { err.textContent = r.error; go.disabled = false; return; }
+        done(r);
+      }, function () { err.textContent = 'No signal — nothing was sent. Try again.'; go.disabled = false; });
+    });
+    if (op === 'decline') go.style.marginTop = '12px';
+    c.appendChild(go); c.appendChild(err);
+    c.appendChild(button('quiet', 'Back', function () { render(); }));
+    a.appendChild(c);
+    t.focus();
+  }
+  function askForm() {
+    textForm('What would you like changed?', 'For example: price the backsplash without the outlet covers', 'Send to ' + biz(), 'ask', 'message', function () {
+      render();
+      $('top').insertBefore(banner('ok', 'Sent to ' + biz() + '. You can still sign this estimate until they send a new one.'), $('top').firstChild);
+      window.scrollTo(0, 0);
+    });
+  }
+  function declineForm() {
+    textForm('Decline this estimate?', 'Reason (optional)', 'Decline', 'decline', 'reason', function (r) { state = r; window.scrollTo(0, 0); render(); }, biz() + ' will be told. This can\'t be undone here.');
+  }
+
+  // ── LOAD ──
+  function load() {
+    token = (location.hash || '').replace(/^#/, '').trim();
+    clear($('act')); $('paper').classList.add('hide');
+    var top = clear($('top'));
+    if (!/^[A-Za-z0-9_-]{30,40}$/.test(token)) { state = { state: 'gone' }; render(); return; }
+    top.appendChild(el('div', 'spin', 'Opening your estimate…'));
+    post({ op: 'view', open: !opened }).then(function (r) {
+      opened = true;
+      if (r.error && !r.state) { clear($('top')).appendChild(banner('bad', r.error)); return; }
+      state = r; pick = (r.signed && r.signed.option) || pick; render();
+    }, function () {
+      clear($('top')).appendChild(banner('bad', 'No signal — the estimate couldn\'t load.'));
+      $('act').appendChild(button('pri', 'Try again', load));
+    });
+  }
+  window.addEventListener('hashchange', function () { opened = false; pick = null; load(); });
+  load();
+})();
+</script>
+</body>
+</html>
